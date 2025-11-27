@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Garfield-Inspired Cat (SVG)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <style>
+    :root {
+      --bg: #f7f7fb;
+      --cat-body: #f28c1b;
+      --cat-shadow: #000000;
+      --cat-light: #ffdc9f;
+      --eye-white: #fffdf7;
+      --eye-lid: #f0c46b;
+      --nose: #d34b42;
+      --outline: #111111;
+      --collar: #2d6cdf;
+      --tag: #ffd166;
+    }
+
+    html, body {
+      background: #ffffff;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    svg {
+      width: 420px;
+      height: auto;
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- DIRECT SVG (No container, no animation) -->
+  <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <ellipse cx="200" cy="332" rx="118" ry="18" fill="#e9ecef"/>
+
+    <path d="M310 240
+             C 350 230, 370 200, 350 170
+             C 330 140, 285 160, 285 195
+             C 288 214, 296 228, 310 240"
+          fill="none" stroke="var(--outline)" stroke-width="6" stroke-linecap="round"/>
+    <path d="M310 240
+             C 345 230, 360 205, 342 178
+             C 324 154, 295 165, 292 190
+             C 295 210, 300 225, 310 240 Z"
+          fill="var(--cat-body)"/>
+
+    <g stroke="var(--cat-shadow)" stroke-width="10" stroke-linecap="round" opacity="0.95">
+      <path d="M320 222 l 26 -8"/>
+      <path d="M316 206 l 26 -8"/>
+      <path d="M312 190 l 26 -8"/>
+    </g>
+
+    <ellipse cx="200" cy="245" rx="110" ry="95"
+             fill="var(--cat-body)" stroke="var(--outline)" stroke-width="6"/>
+
+    <ellipse cx="200" cy="255" rx="66" ry="58"
+             fill="var(--cat-light)" stroke="var(--outline)" stroke-width="4" opacity="0.95"/>
+
+    <g stroke="var(--cat-shadow)" stroke-width="10" stroke-linecap="round">
+      <path d="M150 220 l -30 12"/>
+      <path d="M175 205 l -28 12"/>
+      <path d="M225 205 l 28 12"/>
+      <path d="M250 220 l 30 12"/>
+    </g>
+
+    <circle cx="200" cy="150" r="76"
+            fill="var(--cat-body)" stroke="var(--outline)" stroke-width="6"/>
+
+    <path d="M155 110 L128 72 L178 95 Z"
+          fill="var(--cat-body)" stroke="var(--outline)" stroke-width="6"/>
+    <path d="M245 110 L272 72 L222 95 Z"
+          fill="var(--cat-body)" stroke="var(--outline)" stroke-width="6"/>
+
+    <path d="M155 110 L135 80 L170 98 Z" fill="#f0b36b" opacity="0.85"/>
+    <path d="M245 110 L265 80 L230 98 Z" fill="#f0b36b" opacity="0.85"/>
+
+    <ellipse cx="200" cy="168" rx="60" ry="44"
+             fill="var(--cat-light)" stroke="var(--outline)" stroke-width="4"/>
+
+    <ellipse cx="178" cy="155" rx="18" ry="14" fill="var(--eye-white)" stroke="var(--outline)" stroke-width="3"/>
+    <ellipse cx="222" cy="155" rx="18" ry="14" fill="var(--eye-white)" stroke="var(--outline)" stroke-width="3"/>
+
+    <path d="M160 150 Q 178 140 196 150"
+          fill="none" stroke="var(--eye-lid)" stroke-width="10" stroke-linecap="round"/>
+    <path d="M204 150 Q 222 140 240 150"
+          fill="none" stroke="var(--eye-lid)" stroke-width="10" stroke-linecap="round"/>
+
+    <circle cx="178" cy="156" r="4" fill="#111"/>
+    <circle cx="222" cy="156" r="4" fill="#111"/>
+
+    <g stroke="var(--cat-shadow)" stroke-width="4" stroke-linecap="round" opacity="0.9">
+      <path d="M164 140 l -16 6"/>
+      <path d="M236 140 l 16 6"/>
+    </g>
+
+    <path d="M200 170 m -9 0 l 18 0 l -9 9 Z"
+          fill="var(--nose)" stroke="var(--outline)" stroke-width="3"/>
+
+    <path d="M190 186 C 190 196, 182 199, 174 196"
+          fill="none" stroke="var(--outline)" stroke-width="3" stroke-linecap="round"/>
+    <path d="M210 186 C 210 196, 218 199, 226 196"
+          fill="none" stroke="var(--outline)" stroke-width="3" stroke-linecap="round"/>
+
+    <g stroke="#333" stroke-width="3" stroke-linecap="round">
+      <path d="M160 175 l -36 -10"/>
+      <path d="M160 185 l -40 0"/>
+      <path d="M160 195 l -36 10"/>
+      <path d="M240 175 l 36 -10"/>
+      <path d="M240 185 l 40 0"/>
+      <path d="M240 195 l 36 10"/>
+    </g>
+
+    <ellipse cx="148" cy="308" rx="24" ry="12"
+             fill="var(--cat-light)" stroke="var(--outline)" stroke-width="4"/>
+    <ellipse cx="252" cy="308" rx="24" ry="12"
+             fill="var(--cat-light)" stroke="var(--outline)" stroke-width="4"/>
+
+    <rect x="150" y="194" width="100" height="16" rx="8"
+          fill="var(--collar)" stroke="var(--outline)" stroke-width="4"/>
+    <g>
+      <circle cx="200" cy="214" r="12" fill="var(--tag)" stroke="var(--outline)" stroke-width="3"/>
+      <path d="M193 214 h 14" stroke="var(--outline)" stroke-width="3" stroke-linecap="round"/>
+      <path d="M196 219 h 8" stroke="var(--outline)" stroke-width="3" stroke-linecap="round"/>
+    </g>
+  </svg>
+
+</body>
+</html>
