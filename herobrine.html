@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Herobrine Canvas Art</title>
+  
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background-color: #1e1e1e; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            font-family: 'Inter', sans-serif;
+            color: #fff;
+            min-height: 100vh;
+        }
+
+        #herobrineCanvas {
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5), 0 0 0 4px #4f4f4f;
+            background: #333; 
+            border-radius: 8px;
+            display: block;
+            margin-top: 20px;
+           
+        }
+        
+        .title {
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+        }
+    </style>
+</head>
+<body>
+
+    
+    <a href="portfolio.html" class="inline-block px-6 py-3 bg-gray-700 text-white font-semibold rounded-lg shadow-md hover:bg-gray-600 transition duration-300 mb-6">
+        &larr; Back to Portfolio
+    </a>
+
+    <h1 class="title text-4xl font-bold mb-8 text-white">Herobrine</h1>
+
+    
+    <canvas id="herobrineCanvas"></canvas>
+
+    <script>
+       //drawing area
+        const CANVAS_WIDTH = 400; 
+        const CANVAS_HEIGHT = 800; 
+        
+      
+        const BLOCK_SCALE = 16; 
+        
+        const PIXEL_SCALE = CANVAS_WIDTH / 25; 
+
+        // Minecraft Color Palette 
+        const COLORS = {
+            skin: '#C68A5D',
+            hair: '#4A3626',
+            shirt: '#00AEB5', 
+            pants: '#4B0082', 
+            eyes: '#FFFFFF', 
+        };
+
+        const canvas = document.getElementById('herobrineCanvas');
+        const ctx = canvas.getContext('2d');
+
+        // canvas size
+        canvas.width = CANVAS_WIDTH;
+        canvas.height = CANVAS_HEIGHT;
+
+        // Function to draw a colored block
+        function drawBlock(x, y, width, height, color) {
+            ctx.fillStyle = color;
+            ctx.fillRect(x, y, width, height);
+        }
+
+    
+        function drawHerobrine() {
+           
+            ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+            
+           
+            const FIGURE_WIDTH_PIXELS = PIXEL_SCALE * 16;
+            const startX = (CANVAS_WIDTH - FIGURE_WIDTH_PIXELS) / 2;
+            let currentY = PIXEL_SCALE * 2; 
+
+            const HEAD_WIDTH = PIXEL_SCALE * 8;
+            const HEAD_HEIGHT = PIXEL_SCALE * 8;
+            const headX = startX + PIXEL_SCALE * 4; 
+            
+            
+            drawBlock(headX, currentY, HEAD_WIDTH, PIXEL_SCALE * 3, COLORS.hair);
+            
+            // Face/Skin
+            drawBlock(headX, currentY + PIXEL_SCALE * 3, HEAD_WIDTH, PIXEL_SCALE * 5, COLORS.skin);
+            
+            
+            const EYE_WIDTH = PIXEL_SCALE * 2;
+            const EYE_HEIGHT = PIXEL_SCALE * 1;
+            const EYE_Y = currentY + PIXEL_SCALE * 4;
+            
+            // Left Eye
+            drawBlock(headX + PIXEL_SCALE * 2, EYE_Y, EYE_WIDTH, EYE_HEIGHT, COLORS.eyes);
+            // Right Eye
+            drawBlock(headX + PIXEL_SCALE * 5, EYE_Y, EYE_WIDTH, EYE_HEIGHT, COLORS.eyes);
+            
+            currentY += HEAD_HEIGHT + PIXEL_SCALE * 2;
+
+            // Body/aArms
+            const BODY_HEIGHT = PIXEL_SCALE * 12;
+            
+            // Torso 
+            const TORSO_WIDTH = PIXEL_SCALE * 8;
+            drawBlock(startX + PIXEL_SCALE * 4, currentY, TORSO_WIDTH, BODY_HEIGHT, COLORS.shirt);
+            
+            // Arms )
+            const ARM_WIDTH = PIXEL_SCALE * 4;
+            
+            // Left Arm
+            drawBlock(startX, currentY, ARM_WIDTH, PIXEL_SCALE * 6, COLORS.skin); 
+            drawBlock(startX, currentY + PIXEL_SCALE * 6, ARM_WIDTH, PIXEL_SCALE * 8, COLORS.shirt); 
+            
+            // Right Arm
+            const rightArmX = startX + PIXEL_SCALE * 12;
+            drawBlock(rightArmX, currentY, ARM_WIDTH, PIXEL_SCALE * 6, COLORS.skin);
+            drawBlock(rightArmX, currentY + PIXEL_SCALE * 6, ARM_WIDTH, PIXEL_SCALE * 8, COLORS.shirt); 
+
+            currentY += BODY_HEIGHT + PIXEL_SCALE * 2; 
+
+            // 3. Legs
+            const LEG_HEIGHT = PIXEL_SCALE * 12;
+            const LEG_WIDTH = PIXEL_SCALE * 4;
+            const legY = currentY;
+            
+            // Left Leg 
+            drawBlock(startX + PIXEL_SCALE * 4, legY, LEG_WIDTH, LEG_HEIGHT, COLORS.pants);
+            
+            // Right Leg 
+            drawBlock(startX + PIXEL_SCALE * 8, legY, LEG_WIDTH, LEG_HEIGHT, COLORS.pants);
+        }
+
+        
+        window.onload = function() {
+            drawHerobrine();
+        }
+    </script>
+</body>
+</html>
